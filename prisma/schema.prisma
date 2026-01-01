@@ -31,4 +31,24 @@ model Event {
   payload   Json
   apiKeyId  String
   apiKey    ApiKey   @relation(fields: [apiKeyId], references: [id])
+
+  // --- Tier 1: Standard Business Columns ---
+  // Identity
+  email     String?
+  phone     String?
+  ipAddress String?
+
+  // Affiliate / Marketing
+  source      String?
+  medium      String?
+  campaign    String?
+  clickId     String?
+  affiliateId String?
+
+  // Commerce
+  value    Float?
+  currency String?
+
+  // Technical
+  userAgent String?
 }
