@@ -2,6 +2,9 @@ import prisma from "@/lib/prisma"
 import EventsTable from "@/components/events-table"
 import QueryBuilder from "@/components/query-builder"
 
+// Force dynamic rendering to prevent build-time DB connection on Vercel
+export const dynamic = 'force-dynamic'
+
 interface DashboardPageProps {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
