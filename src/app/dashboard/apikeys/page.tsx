@@ -2,6 +2,9 @@ import prisma from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
 import { randomUUID } from "crypto"
 
+// Force dynamic rendering to prevent build-time DB connection on Vercel
+export const dynamic = 'force-dynamic'
+
 export default async function ApiKeysPage() {
     const keys = await prisma.apiKey.findMany({ orderBy: { createdAt: 'desc' } })
 

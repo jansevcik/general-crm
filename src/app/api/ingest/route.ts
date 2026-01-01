@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic'
+
 function safeFloat(val: any): number | null {
     if (typeof val === 'number') return val;
     if (typeof val === 'string') {
